@@ -24,9 +24,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>CampusDay 2025</title>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="fixed w-screen bg-pink-200 p-4 shadow-md">
+          <div className="container mx-auto flex justify-between items-center">
+              <h1 className="text-3xl font-bold text-yellow-600">College Expo 2023</h1>
+              <nav>
+                  <ul className="flex space-x-4">
+                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">Home</a></li>
+                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">About</a></li>
+                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">Schedule</a></li>
+                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">Contact</a></li>
+                  </ul>
+              </nav>
+          </div>
+        </header>
         {children}
       </body>
     </html>
