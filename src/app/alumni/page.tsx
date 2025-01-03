@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function Home() {
   const fetchAlumni = async () => {
-    const res = await fetch("http://localhost:3000/api/alumni")
+    const res = await fetch(process.env.URL + "/api/alumni")
     const alumni = await res.json()
     return alumni
   }
