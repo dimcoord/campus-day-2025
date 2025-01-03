@@ -7,18 +7,17 @@ export default function Home() {
         <div className="min-h-screen flex flex-col bg-pink-50">
             <div className="flex-grow container mx-auto p-4 mt-12">
                 <section className="text-center my-8">
-                    <h2 className="text-4xl font-bold text-pink-600">Pematerian Main Event</h2>
-                    <p className="text-lg text-gray-700 mt-4">Topik pematerian-pematerian yang dilaksanakan pada main event.</p>
+                    <h2 className="text-4xl font-bold text-pink-600">Rundown Acara</h2>
+                    <p className="text-lg text-gray-700 mt-4">Linimasa pelaksanaan main event.</p>
                 </section>
                 <section className="my-8">
                     <div className="overflow-x-auto">
                         <table className="min-w-full bg-white rounded-lg shadow-lg">
                             <thead className="bg-pink-200">
                                 <tr>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Pemateri</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Materi</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Lokasi</th>
                                     <th className="py-2 px-4 text-left text-yellow-600">Waktu</th>
+                                    <th className="py-2 px-4 text-left text-yellow-600">Acara</th>
+                                    <th className="py-2 px-4 text-left text-yellow-600">Lokasi</th>
                                 </tr>
                             </thead>
                             <tbody>

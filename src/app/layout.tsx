@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,18 +33,21 @@ export default function RootLayout({
       >
         <header className="fixed w-screen bg-pink-200 p-4 shadow-md">
           <div className="container mx-auto flex justify-between items-center">
-              <h1 className="text-3xl font-bold text-yellow-600">College Expo 2023</h1>
+              <h1 className="text-3xl font-bold text-yellow-600">CampusDay 2025</h1>
               <nav>
                   <ul className="flex space-x-4">
-                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">Home</a></li>
-                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">About</a></li>
-                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">Schedule</a></li>
-                      <li><a href="#" className="text-yellow-600 hover:text-yellow-800">Contact</a></li>
+                      <li><Link href="/" className="text-yellow-600 hover:text-yellow-800">Home</Link></li>
+                      <li><Link href="/rundown" className="text-yellow-600 hover:text-yellow-800">Rundown</Link></li>
+                      <li><Link href="/materi" className="text-yellow-600 hover:text-yellow-800">Materi</Link></li>
+                      <li><Link href="/alumni" className="text-yellow-600 hover:text-yellow-800">Alumni</Link></li>
                   </ul>
               </nav>
           </div>
         </header>
         {children}
+        <footer className="bg-pink-200 p-4 text-center">
+          <p className="text-yellow-600">&copy; 2025 CampusDay. All rights reserved.</p>
+        </footer>
       </body>
     </html>
   );
