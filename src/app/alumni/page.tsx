@@ -1,12 +1,22 @@
+"use client"
+
+import { useEffect, useState } from "react"
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default async function Home() {
+export default function Home() {
   const fetchAlumni = async () => {
-    const res = await fetch(process.env.URL + "/api/alumni")
+    const res = await fetch("http://localhost:3000/api/alumni")
     const alumni = await res.json()
     return alumni
   }
 
-  const alumni = await fetchAlumni()
+  const [alumni, setAlumni] = useState([])
+
+  useEffect(() => {
+    fetchAlumni().then((alumni) => {
+        setAlumni(alumni)
+    })
+  }, [])
 
   return (
     <main>
