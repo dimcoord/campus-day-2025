@@ -18,6 +18,26 @@ export default {
   			hijau_3: '#3CCC8F',
   			hijau_2: '#6AF1B9',
   			hijau_1: '#C6EFDD',
+			biru_5: '#04277B',
+			biru_4: '#254598',
+			biru_3: '#4267C2',
+			biru_2: '#71BAE5',
+			biru_1: '#A4D1EE',
+			kuning_5: '#AB2200',
+			kuning_4: '#F24E2B',
+			kuning_3: '#FB8057',
+			kuning_2: '#EFB247',
+			kuning_1: '#F0E356',
+			merah_4: '#AE2221',
+			merah_3: '#EA7273',
+			merah_2: '#F7B7B7',
+			merah_1: '#FFDCDA',
+			ungu_4: '#4F1964',
+			ungu_3: '#975AB7',
+			ungu_2: '#BB6AE3',
+			ungu_1: '#E5AFFB',
+
+
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
