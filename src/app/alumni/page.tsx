@@ -27,8 +27,8 @@ const ResultDisplay = ({ data }: { data: any }) => {
   if (Array.isArray(data)) {
     return (
       <table className="bg-muted p-4 rounded-lg space-y-2 text-sm">
-        <thead>
-            <tr>
+        <thead className='container'>
+            <tr className='flex justify-between'>
                 <th>Nama</th>
                 <th>Angkatan</th>
                 <th>Prodi</th>
@@ -58,7 +58,7 @@ const ResultDisplay = ({ data }: { data: any }) => {
       {Object.entries(data).map(([key, value]) => (
         <p key={key}>
           {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}:{' '}
-          {value.toString()}
+          {(value as any).toString()}
         </p>
       ))}
     </div>
@@ -142,12 +142,13 @@ export default function Home() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="recent">
-              <AccordionTrigger>Recent Users</AccordionTrigger>
+            <AccordionItem value="teknik">
+              <AccordionTrigger>Teknik</AccordionTrigger>
               <AccordionContent>
-                <QuerySection operation="recent" value={value} />
+                <QuerySection operation="teknik" value={value} />
               </AccordionContent>
             </AccordionItem>
+
           </Accordion>
         </CardContent>
       </Card>
