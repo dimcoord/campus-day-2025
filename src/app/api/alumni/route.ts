@@ -16,7 +16,7 @@ export async function GET(request: Request) {
         result = await Alumni.find({ruangan: 1}).sort({ nama: 'ascending' })
         break
 
-      case 'humanioria':
+      case 'humaniora':
         result = await Alumni.find({ruangan: 2}).sort({ nama: 'ascending' })
         break
 

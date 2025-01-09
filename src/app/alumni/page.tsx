@@ -128,17 +128,52 @@ export default function Home() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="count">
-              <AccordionTrigger>User Count</AccordionTrigger>
+            <AccordionItem value="humaniora">
+              <AccordionTrigger>Humaniora</AccordionTrigger>
               <AccordionContent>
-                <QuerySection operation="count" value={value} />
+                <QuerySection operation="humaniora" value={value} />
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="stats">
-              <AccordionTrigger>User Statistics</AccordionTrigger>
+            <AccordionItem value="kedinasan">
+              <AccordionTrigger>Kedinasan</AccordionTrigger>
               <AccordionContent>
-                <QuerySection operation="stats" value={value} />
+                <QuerySection operation="kedinasan" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="kesehatan">
+              <AccordionTrigger>Kesehatan</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="kesehatan" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="ekbis">
+              <AccordionTrigger>Ekbis</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="ekbis" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="mipakom">
+              <AccordionTrigger>Mipakom</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="mipakom" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="pendidikan">
+              <AccordionTrigger>Pendidikan</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="pendidikan" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="sospol">
+              <AccordionTrigger>Sospol</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="sospol" value={value} />
               </AccordionContent>
             </AccordionItem>
 
@@ -146,6 +181,13 @@ export default function Home() {
               <AccordionTrigger>Teknik</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="teknik" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="vokasi">
+              <AccordionTrigger>Vokasi</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="vokasi" value={value} />
               </AccordionContent>
             </AccordionItem>
 
