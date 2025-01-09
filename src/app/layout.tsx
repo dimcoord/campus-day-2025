@@ -27,9 +27,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <title>CampusDay 2025</title>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -41,10 +38,11 @@ export default function RootLayout({
             </div>
               <nav>
                   <ul className="flex space-x-4">
-                      <li><Link href="/" className="text-yellow-600 hover:text-yellow-800">Home</Link></li>
-                      <li><Link href="/rundown" className="text-yellow-600 hover:text-yellow-800">Rundown</Link></li>
                       <li><Link href="/materi" className="text-yellow-600 hover:text-yellow-800">Materi</Link></li>
+                      <li><Link href="/entre" className="text-yellow-600 hover:text-yellow-800">Entre</Link></li>
+                      <li><Link href="/adaptasi" className="text-yellow-600 hover:text-yellow-800">Adaptasi</Link></li>
                       <li><Link href="/alumni" className="text-yellow-600 hover:text-yellow-800">Alumni</Link></li>
+                      <li><Link href="/beasiswa" className="text-yellow-600 hover:text-yellow-800">Beasiswa</Link></li>
                   </ul>
               </nav>
           </div>

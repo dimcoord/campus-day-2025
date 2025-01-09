@@ -1,56 +1,156 @@
-"use client"
-
-import { useEffect, useState } from "react"
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function Home() {
-  const fetchAlumni = async () => {
-    const res = await fetch("/api/alumni")
-    const alumni = await res.json()
-    return alumni
+'use client'
+
+import { useState } from 'react'
+import useSWR from 'swr'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
+
+// Fetch function for SWR
+const fetcher = async (url: string) => {
+  const res = await fetch(url)
+  if (!res.ok) {
+    throw new Error('An error occurred while fetching the data.')
+  }
+  return res.json()
+}
+
+const ResultDisplay = ({ data }: { data: any }) => {
+  if (!data) return null
+
+  if (Array.isArray(data)) {
+    return (
+      <table className="bg-muted p-4 rounded-lg space-y-2 text-sm">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Angkatan</th>
+                <th>Prodi</th>
+                <th>PT</th>
+                <th>Kontak</th>
+                <th>IG</th>
+            </tr>
+        </thead>
+        <tbody>
+        {data.map((item, index) => (
+          <tr key={index} className="border-b last:border-0 pb-2 last:pb-0">
+            <td>{item.nama}</td>
+            <td>{item.angkatan}</td>
+            <td>{item.prodi}</td>
+            <td>{item.pt}</td>
+            <td>{item.kontak}</td>
+            <td>{item.ig}</td>
+          </tr>
+        ))}
+        </tbody>
+      </table>
+    )
   }
 
-  const [alumni, setAlumni] = useState([])
+  return (
+    <div className="bg-muted p-4 rounded-lg space-y-1 text-sm">
+      {Object.entries(data).map(([key, value]) => (
+        <p key={key}>
+          {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}:{' '}
+          {value.toString()}
+        </p>
+      ))}
+    </div>
+  )
+}
 
-  useEffect(() => {
-    fetchAlumni().then((alumni) => {
-        setAlumni(alumni)
-    })
-  }, [])
+const QuerySection = ({ operation, value }: { operation: string; value: string }) => {
+  const { data, error, isLoading } = useSWR(
+    value === operation ? `/api/alumni?operation=${operation}` : null,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false
+    }
+  )
+
+  if (error) {
+    return (
+      <div className="text-red-500 text-sm">
+        Error loading data. Please try again later.
+      </div>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-3/4" />
+        <Skeleton className="h-4 w-1/2" />
+      </div>
+    )
+  }
+
+  if (operation === 'stats' && data) {
+    return <ResultDisplay data={data[0]} />
+  }
+
+  if (operation === 'count' && data) {
+    return <ResultDisplay data={{ count: data }} />
+  }
+
+  return <ResultDisplay data={data} />
+}
+
+export default function Home() {
+  const [value, setValue] = useState('')
 
   return (
-    <main>
-      <div id="root"></div>
-        <div className="min-h-screen flex flex-col bg-pink-50">
-            <div className="flex-grow container mx-auto p-4 mt-12">
-                <section className="text-center my-8">
-                    <h2 className="text-4xl font-bold text-pink-600">Persebaran Alumni</h2>
-                    <p className="text-lg text-gray-700 mt-4">Persebaran alumni SMAN 24 Bandung di seluruh perguruan tinggi Indonesia.</p>
-                </section>
-                <section className="my-8">
-                    <div className="overflow-x-auto">
-                        <table className="min-w-full bg-white rounded-lg shadow-lg">
-                            <thead className="bg-pink-200">
-                                <tr>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Nama</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Perguruan Tinggi</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Fakultas - Program Studi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {alumni.map((alumnus: any) => (
-                                    <><tr key={alumnus._id} className="border-b">
-                                        <td className="py-2 px-4 text-gray-700">{alumnus.nama}</td>
-                                        <td className="py-2 px-4 text-gray-700">{alumnus.pt}</td>
-                                        <td className="py-2 px-4 text-gray-700">{alumnus.f_prodi}</td>
-                                    </tr></>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
-          </div>
+    <main className="container mx-auto p-4">
+      <Card className="max-w-2xl mx-auto mt-20">
+        <CardHeader>
+          <CardTitle>Persebaran Alumni</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Accordion 
+            type="single" 
+            collapsible 
+            className="w-full"
+            value={value}
+            onValueChange={setValue}
+          >
+            <AccordionItem value="agraria">
+              <AccordionTrigger>Agraria</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="agraria" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="count">
+              <AccordionTrigger>User Count</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="count" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="stats">
+              <AccordionTrigger>User Statistics</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="stats" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="recent">
+              <AccordionTrigger>Recent Users</AccordionTrigger>
+              <AccordionContent>
+                <QuerySection operation="recent" value={value} />
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </CardContent>
+      </Card>
     </main>
-  );
+  )
 }

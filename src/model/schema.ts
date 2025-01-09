@@ -1,13 +1,25 @@
 import mongoose from "mongoose";
 
 export interface IAlumni extends Document {
+    ruangan: number,
     nama: string,
+    angkatan: string,
     pt: string,
-    f_prodi: string
+    prodi: string,
+    kontak: string,
+    instagram: string
 }
 
 const alumniSchema = new mongoose.Schema({
+    ruangan: {
+        type: Number,
+        required: true
+    },
     nama: {
+        type: String,
+        required: true
+    },
+    angkatan: {
         type: String,
         required: true
     },
@@ -15,7 +27,15 @@ const alumniSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    f_prodi: {
+    prodi: {
+        type: String,
+        required: true
+    },
+    kontak: {
+        type: String,
+        required: true
+    },
+    instagram: {
         type: String,
         required: true
     },
