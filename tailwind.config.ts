@@ -12,6 +12,7 @@ export default {
   	extend: {
 		backgroundImage: {
 			'hero': "url('../../public/sm-hero.png')",
+			'generic': "url('../../public/bg.png')"
 		},
   		colors: {
   			background: 'hsl(var(--background))',

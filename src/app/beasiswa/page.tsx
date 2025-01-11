@@ -24,7 +24,7 @@ const scholarships = [
 
 export default function ScholarshipsPage() {
   return (
-    <div className="container mx-auto py-8 px-4 sm:px-6">
+    <div className="container mx-auto py-8 px-4 sm:px-6 w-screen">
       <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Beasiswa & Kalender</h1>
       
       <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">

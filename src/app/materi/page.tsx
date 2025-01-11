@@ -14,10 +14,11 @@ export default function Home() {
   const [value, setValue] = useState('')
 
   return (
-    <main className="container mx-auto p-4">
+    <main className="bg-generic w-screen bg-no-repeat bg-cover">
+      <div className="container mx-auto p-4">
       <Card className="max-w-screen mx-auto mt-20">
         <CardHeader>
-          <CardTitle>Persebaran Alumni</CardTitle>
+          <CardTitle>Materi Rumpun</CardTitle>
         </CardHeader>
         <CardContent>
           <Accordion 
@@ -30,7 +31,10 @@ export default function Home() {
             <AccordionItem value="agraria">
               <AccordionTrigger>Agraria</AccordionTrigger>
               <AccordionContent>
-                <h1>Agraria</h1>
+                <p>
+                  <b></b>
+                  <b></b>
+                </p>
               </AccordionContent>
             </AccordionItem>
 
@@ -100,6 +104,7 @@ export default function Home() {
           </Accordion>
         </CardContent>
       </Card>
+      </div>
     </main>
   )
 }

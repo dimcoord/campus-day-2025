@@ -6,7 +6,7 @@ import hero from "../../public/hero.png"
 export function Hero() {
   return (
     <div className="relative">
-      <div className="absolute bg-hero inset-0 from-primary/10 to-primary/5 -z-10" />
+      <div className="absolute bg-hero bg-no-repeat bg-cover inset-0 from-primary/10 to-primary/5 -z-10" />
       <div className="container max-w-[90vw] mx-auto flex flex-col items-center text-center py-12 px-4 md:py-32 md:px-8">
         <div className="space-y-4 max-w-3xl">
           <Image alt="hero" src={hero} width={600} height={600}></Image>
