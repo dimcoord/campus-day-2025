@@ -9,6 +9,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -26,30 +34,30 @@ const ResultDisplay = ({ data }: { data: any }) => {
 
   if (Array.isArray(data)) {
     return (
-      <table className="bg-muted p-4 rounded-lg space-y-2 text-sm">
-        <thead className='container'>
-            <tr className='flex justify-between'>
-                <th>Nama</th>
-                <th>Angkatan</th>
-                <th>Prodi</th>
-                <th>PT</th>
-                <th>Kontak</th>
-                <th>IG</th>
-            </tr>
-        </thead>
-        <tbody>
+      <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Nama</TableHead>
+                <TableHead>Angkatan</TableHead>
+                <TableHead>Prodi</TableHead>
+                <TableHead>PT</TableHead>
+                <TableHead>Kontak</TableHead>
+                <TableHead>IG</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
         {data.map((item, index) => (
-          <tr key={index} className="border-b last:border-0 pb-2 last:pb-0">
-            <td>{item.nama}</td>
-            <td>{item.angkatan}</td>
-            <td>{item.prodi}</td>
-            <td>{item.pt}</td>
-            <td>{item.kontak}</td>
-            <td>{item.ig}</td>
-          </tr>
+          <TableRow key={index}>
+            <TableCell>{item.nama}</TableCell>
+            <TableCell>{item.angkatan}</TableCell>
+            <TableCell>{item.prodi}</TableCell>
+            <TableCell>{item.pt}</TableCell>
+            <TableCell>{item.kontak}</TableCell>
+            <TableCell>{item.ig}</TableCell>
+          </TableRow>
         ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     )
   }
 
@@ -109,7 +117,7 @@ export default function Home() {
 
   return (
     <main className="container mx-auto p-4">
-      <Card className="max-w-2xl mx-auto mt-20">
+      <Card className="max-w-screen mx-auto mt-20">
         <CardHeader>
           <CardTitle>Persebaran Alumni</CardTitle>
         </CardHeader>

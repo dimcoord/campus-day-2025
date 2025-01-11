@@ -1,73 +1,105 @@
-// import Image from "next/image";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client'
+
+import { useState } from 'react'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export default function Home() {
+  const [value, setValue] = useState('')
+
   return (
-    <main>
-      <div id="root"></div>
-        <div className="min-h-screen flex flex-col bg-pink-50">
-            <div className="flex-grow container mx-auto p-4 mt-12">
-                <section className="text-center my-8">
-                    <h2 className="text-4xl font-bold text-pink-600">Pematerian Main Event</h2>
-                    <p className="text-lg text-gray-700 mt-4">Topik pematerian-pematerian yang dilaksanakan pada main event.</p>
-                </section>
-                <section className="my-8">
-                    <div className="overflow-x-auto">
-                        <table className="min-w-full bg-white rounded-lg shadow-lg">
-                            <thead className="bg-pink-200">
-                                <tr>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Pemateri</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Materi</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Lokasi</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Waktu</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">9:00 AM - 10:00 AM</td>
-                                    <td className="py-2 px-4 text-gray-700">Opening Ceremony</td>
-                                    <td className="py-2 px-4 text-gray-700">Main Hall</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">10:15 AM - 11:00 AM</td>
-                                    <td className="py-2 px-4 text-gray-700">Keynote Speech: The Future of Education</td>
-                                    <td className="py-2 px-4 text-gray-700">Auditorium</td>
-                                </tr>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">11:15 AM - 12:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Panel Discussion: Choosing the Right College</td>
-                                    <td className="py-2 px-4 text-gray-700">Room A</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">12:00 PM - 1:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Lunch Break</td>
-                                    <td className="py-2 px-4 text-gray-700">Cafeteria</td>
-                                </tr>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">1:00 PM - 2:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Workshop: Writing a Winning College Essay</td>
-                                    <td className="py-2 px-4 text-gray-700">Room B</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">2:15 PM - 3:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Campus Tours</td>
-                                    <td className="py-2 px-4 text-gray-700">Various Locations</td>
-                                </tr>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">3:15 PM - 4:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Networking Session</td>
-                                    <td className="py-2 px-4 text-gray-700">Exhibition Hall</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">4:15 PM - 5:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Closing Remarks</td>
-                                    <td className="py-2 px-4 text-gray-700">Main Hall</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
-          </div>
+    <main className="container mx-auto p-4">
+      <Card className="max-w-screen mx-auto mt-20">
+        <CardHeader>
+          <CardTitle>Persebaran Alumni</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Accordion 
+            type="single" 
+            collapsible 
+            className="w-full"
+            value={value}
+            onValueChange={setValue}
+          >
+            <AccordionItem value="agraria">
+              <AccordionTrigger>Agraria</AccordionTrigger>
+              <AccordionContent>
+                <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="humaniora">
+              <AccordionTrigger>Humaniora</AccordionTrigger>
+              <AccordionContent>
+                <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="kedinasan">
+              <AccordionTrigger>Kedinasan</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="kesehatan">
+              <AccordionTrigger>Kesehatan</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="ekbis">
+              <AccordionTrigger>Ekbis</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="mipakom">
+              <AccordionTrigger>Mipakom</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="pendidikan">
+              <AccordionTrigger>Pendidikan</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="sospol">
+              <AccordionTrigger>Sospol</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="teknik">
+              <AccordionTrigger>Teknik</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="vokasi">
+              <AccordionTrigger>Vokasi</AccordionTrigger>
+              <AccordionContent>
+              <h1>Agraria</h1>
+              </AccordionContent>
+            </AccordionItem>
+
+          </Accordion>
+        </CardContent>
+      </Card>
     </main>
-  );
+  )
 }

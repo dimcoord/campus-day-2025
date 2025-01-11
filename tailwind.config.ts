@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
   	extend: {
+		backgroundImage: {
+			'hero': "url('../../public/sm-hero.png')",
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

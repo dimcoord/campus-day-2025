@@ -1,72 +1,78 @@
-// import Image from "next/image";
+import { Calendar } from "@/components/ui/calendar"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
-export default function Home() {
+const scholarships = [
+  {
+    name: "Academic Excellence Scholarship",
+    amount: "Rp10.000.000",
+    deadline: "1 Maret 2024",
+    requirements: "Nilai rata-rata 90"
+  },
+  {
+    name: "Academic Excellence Scholarship",
+    amount: "Rp10.000.000",
+    deadline: "1 Maret 2024",
+    requirements: "Nilai rata-rata 90"
+  },
+  {
+    name: "Academic Excellence Scholarship",
+    amount: "Rp10.000.000",
+    deadline: "1 Maret 2024",
+    requirements: "Nilai rata-rata 90"
+  },
+]
+
+export default function ScholarshipsPage() {
   return (
-    <main>
-      <div id="root"></div>
-        <div className="min-h-screen flex flex-col bg-pink-50">
-            <div className="flex-grow container mx-auto p-4 mt-12">
-                <section className="text-center my-8">
-                    <h2 className="text-4xl font-bold text-pink-600">Rundown Acara</h2>
-                    <p className="text-lg text-gray-700 mt-4">Linimasa pelaksanaan main event.</p>
-                </section>
-                <section className="my-8">
-                    <div className="overflow-x-auto">
-                        <table className="min-w-full bg-white rounded-lg shadow-lg">
-                            <thead className="bg-pink-200">
-                                <tr>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Waktu</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Acara</th>
-                                    <th className="py-2 px-4 text-left text-yellow-600">Lokasi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">9:00 AM - 10:00 AM</td>
-                                    <td className="py-2 px-4 text-gray-700">Opening Ceremony</td>
-                                    <td className="py-2 px-4 text-gray-700">Main Hall</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">10:15 AM - 11:00 AM</td>
-                                    <td className="py-2 px-4 text-gray-700">Keynote Speech: The Future of Education</td>
-                                    <td className="py-2 px-4 text-gray-700">Auditorium</td>
-                                </tr>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">11:15 AM - 12:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Panel Discussion: Choosing the Right College</td>
-                                    <td className="py-2 px-4 text-gray-700">Room A</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">12:00 PM - 1:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Lunch Break</td>
-                                    <td className="py-2 px-4 text-gray-700">Cafeteria</td>
-                                </tr>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">1:00 PM - 2:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Workshop: Writing a Winning College Essay</td>
-                                    <td className="py-2 px-4 text-gray-700">Room B</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">2:15 PM - 3:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Campus Tours</td>
-                                    <td className="py-2 px-4 text-gray-700">Various Locations</td>
-                                </tr>
-                                <tr className="border-b">
-                                    <td className="py-2 px-4 text-gray-700">3:15 PM - 4:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Networking Session</td>
-                                    <td className="py-2 px-4 text-gray-700">Exhibition Hall</td>
-                                </tr>
-                                <tr className="border-b bg-pink-50">
-                                    <td className="py-2 px-4 text-gray-700">4:15 PM - 5:00 PM</td>
-                                    <td className="py-2 px-4 text-gray-700">Closing Remarks</td>
-                                    <td className="py-2 px-4 text-gray-700">Main Hall</td>
-                                </tr>
-                            </tbody>
-                        </table>
+    <div className="container mx-auto py-8 px-4 sm:px-6">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">Beasiswa & Kalender</h1>
+      
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+        <div>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Beasiswa</h2>
+          <div className="space-y-4 sm:space-y-6">
+            {scholarships.map((scholarship) => (
+              <Card key={scholarship.name}>
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="text-lg sm:text-xl">{scholarship.name}</CardTitle>
+                  <CardDescription className="text-sm sm:text-base">Tanggungan: {scholarship.amount}</CardDescription>
+                </CardHeader>
+                <CardContent className="p-4 sm:p-6">
+                  <div className="space-y-2 text-sm sm:text-base">
+                    <div>
+                      <span className="font-semibold">Deadline:</span> {scholarship.deadline}
                     </div>
-                </section>
-            </div>
+                    <div>
+                      <span className="font-semibold">Syarat:</span> {scholarship.requirements}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-    </main>
-  );
+        </div>
+        
+        <div>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Kalender Beasiswa</h2>
+          <Card>
+            <CardContent className="p-2 sm:p-4">
+              <Calendar
+                mode="single"
+                className="rounded-md border"
+              />
+            </CardContent>
+          </Card>
+          <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-muted rounded-lg">
+            <h3 className="font-semibold mb-2">Catat tanggal-tanggal ini:</h3>
+            <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
+              <li>• March 1: Academic Excellence Scholarship Deadline</li>
+              <li>• April 15: STEM Innovation Award Deadline</li>
+              <li>• May 1: Community Leadership Grant Deadline</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
+
