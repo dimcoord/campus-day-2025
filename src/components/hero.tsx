@@ -24,7 +24,7 @@ export function Hero() {
         <div className="flex flex-col w-full sm:flex-row sm:w-auto gap-3 mt-8 px-4 sm:px-0">
           <Button className="w-full sm:w-auto bg-gradient-to-r from-merah_2 to-kuning_2 
           border-2 hover:from-kuning_2 hover:to-merah_2 transition" asChild size="lg">
-            <Link href="/entre">Lihat Entre</Link>
+            <Link href="/materi">Lihat Materi</Link>
           </Button>
           <Button className="w-full sm:w-auto bg-gradient-to-r from-merah_2 to-kuning_2 
           border-2 hover:from-kuning_2 hover:to-merah_2 transition" asChild size="lg">

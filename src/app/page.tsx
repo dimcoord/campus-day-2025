@@ -14,7 +14,7 @@ export default function HomePage() {
       <div className="container max-w-7xl mx-auto py-8 sm:py-16 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Perguruan Tinggi</h2>
-          <p className="text-lg sm:text-xl text-muted-foreground">Lorem ipsum dolor sit amet.</p>
+          <p className="text-lg sm:text-xl text-muted-foreground">Lihat informasi tentang perguruan tinggi favoritmu di sini.</p>
         </div>
         
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">

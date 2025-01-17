@@ -26,5 +26,26 @@ export const pt = [
       image: "/polban.jpg",
       logo: "/placeholder.svg?height=200&width=400",
       programs: ["Saintek", "Politeknik", "Vokasi"]
-    }
+    },
+    {
+      name: "Politeknik Negeri Bandung",
+      description: "Lorem ipsum dolor sit amet.",
+      image: "/polban.jpg",
+      logo: "/placeholder.svg?height=200&width=400",
+      programs: ["Saintek", "Politeknik", "Vokasi"]
+    },
+    {
+      name: "Politeknik Negeri Bandung",
+      description: "Lorem ipsum dolor sit amet.",
+      image: "/polban.jpg",
+      logo: "/placeholder.svg?height=200&width=400",
+      programs: ["Saintek", "Politeknik", "Vokasi"]
+    },
+    {
+      name: "Politeknik Negeri Bandung",
+      description: "Lorem ipsum dolor sit amet.",
+      image: "/polban.jpg",
+      logo: "/placeholder.svg?height=200&width=400",
+      programs: ["Saintek", "Politeknik", "Vokasi"]
+    },
   ]

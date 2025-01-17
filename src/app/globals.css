@@ -76,17 +76,25 @@
 }
 
 @layer utilities {
-  .animate-scroll {
-    animation: scroll 40s linear infinite;
+  /* Custom scrollbar styles */
+  .scrollbar-container::-webkit-scrollbar {
+    height: 6px;
+    background-color: transparent;
   }
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  .scrollbar-container::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-container::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* For Firefox */
+  .scrollbar-container {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
   }
 }
 
