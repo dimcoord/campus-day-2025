@@ -10,8 +10,6 @@ import { useState } from "react"
 
 const navItems = [
   { href: "/materi", label: "Materi" },
-  { href: "/entre", label: "Entre" },
-  { href: "/adaptasi", label: "Adaptasi" },
   { href: "/alumni", label: "Alumni" },
   { href: "/beasiswa", label: "Beasiswa" },
 ]
