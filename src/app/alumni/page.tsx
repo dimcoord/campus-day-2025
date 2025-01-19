@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import { useState } from 'react'
@@ -116,10 +115,11 @@ export default function Home() {
   const [value, setValue] = useState('')
 
   return (
-    <main className="container mx-auto p-4">
+    <main className="bg-generic w-screen bg-no-repeat bg-cover">
+      <div className="container mx-auto p-4">
       <Card className="max-w-screen mx-auto mt-20">
         <CardHeader>
-          <CardTitle>Persebaran Alumni</CardTitle>
+          <CardTitle className='text-2xl'>Persebaran Alumni</CardTitle>
         </CardHeader>
         <CardContent>
           <Accordion 
@@ -130,70 +130,70 @@ export default function Home() {
             onValueChange={setValue}
           >
             <AccordionItem value="agraria">
-              <AccordionTrigger>Agraria</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Agraria</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="agraria" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="humaniora">
-              <AccordionTrigger>Humaniora</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Humaniora</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="humaniora" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="kedinasan">
-              <AccordionTrigger>Kedinasan</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Kedinasan</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="kedinasan" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="kesehatan">
-              <AccordionTrigger>Kesehatan</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Kesehatan</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="kesehatan" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="ekbis">
-              <AccordionTrigger>Ekbis</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Ekbis</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="ekbis" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="mipakom">
-              <AccordionTrigger>Mipakom</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Mipakom</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="mipakom" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="pendidikan">
-              <AccordionTrigger>Pendidikan</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Pendidikan</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="pendidikan" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="sospol">
-              <AccordionTrigger>Sospol</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Sospol</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="sospol" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="teknik">
-              <AccordionTrigger>Teknik</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Teknik</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="teknik" value={value} />
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="vokasi">
-              <AccordionTrigger>Vokasi</AccordionTrigger>
+              <AccordionTrigger className='text-xl'>Vokasi</AccordionTrigger>
               <AccordionContent>
                 <QuerySection operation="vokasi" value={value} />
               </AccordionContent>
@@ -202,6 +202,7 @@ export default function Home() {
           </Accordion>
         </CardContent>
       </Card>
+      </div>
     </main>
   )
 }

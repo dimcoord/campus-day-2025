@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
     darkMode: ["class"],
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,14 +9,22 @@ export default {
   ],
   theme: {
   	extend: {
-		backgroundImage: {
+  		backgroundImage: {
 			'hero': "url('../../public/sm-hero.png')",
-			'generic': "url('../../public/bg.png')"
-		},
+			'generic': "url('../../public/bg.png')",
+  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-  			hijau_5: '#10513D',
+
+			hijau_5: '#10513D',
   			hijau_4: '#2F845A',
   			hijau_3: '#3CCC8F',
   			hijau_2: '#6AF1B9',
@@ -40,7 +47,6 @@ export default {
 			ungu_3: '#975AB7',
 			ungu_2: '#BB6AE3',
 			ungu_1: '#E5AFFB',
-
 
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -81,11 +87,6 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
   		keyframes: {
   			'accordion-down': {
   				from: {
@@ -111,4 +112,5 @@ export default {
   	}
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};
+export default config;
