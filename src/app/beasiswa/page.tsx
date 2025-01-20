@@ -1,22 +1,13 @@
-import { Calendar } from "@/components/ui/calendar"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-
-const scholarships = [
-  {
-    nama: "Kartu Indonesia Pintar (KIP)",
-    deskripsi: "KIP (Kartu Indonesia Pintar) merupakan salah satu program bantuan dari pemerintah dalam membantu mahasiswa yang berasal dari keluarga kurang mampu secara ekonomi untuk dapat mengakses pendidikan di perguruan tinggi.",
-    syarat: {
-      1: "Siswa SMA/SMK/MA atau yang setara yang lulus pada tahun ini atau maksimal dua tahun sebelumnya.",
-      2: "Memiliki nomor induk siswa nasional (NISN), nomor pokok sekolah nasional (NPSN), dan nomor induk kependudukan (NIK) yang valid.",
-      3: "Berasal dari keluarga kurang mampu, yang dibuktikan dengan salah satu dokumen berikut: Kartu Indonesia Pintar (KIP) atau Kartu Keluarga Sejahtera (KKS)",
-      4: "Terdaftar di Data Terpadu Kesejahteraan Sosial (DTKS) Kementerian Sosial Republik Indonesia",
-      5: "Surat Keterangan Tidak Mampu (SKTM) yang dikeluarkan oleh pemerintah daerah.",
-      6: "Memiliki potensi akademik yang baik, yang dibuktikan dengan diterima di perguruan tinggi negeri atau swasta pada program studi yang terakreditasi A atau B. Dalam kondisi tertentu, program studi yang terakreditasi C juga dapat dipertimbangkan.",
-    },
-    deadline: "Januari akhir/Februari 2025",
-    tunjangan: "per semester di kisaran Rp2.400.000 hingga Rp12.000.000 dan Biaya Pendidikan",
-  },
-]
+import Link from "next/link"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { scholarships } from "@/lib/scholarship"
 
 export default function ScholarshipsPage() {
   return (
@@ -46,34 +37,48 @@ export default function ScholarshipsPage() {
         <div>
           <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Beasiswa</h2>
           <div className="space-y-4 sm:space-y-6">
-            {scholarships.map((scholarship) => (
-              <Card key={scholarship.nama}>
-                <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-lg sm:text-xl">{scholarship.nama}</CardTitle>
-                  <CardDescription className="text-sm sm:text-base">{scholarship.deskripsi}</CardDescription>
-                </CardHeader>
-                <CardContent className="p-4 sm:p-6">
-                  <div className="space-y-2 text-sm sm:text-base">
-                    <div>
-                      <p className="font-bold">Syarat:</p>
-                      <ol>
-                        {Object.entries(scholarship.syarat).map(([key, value]) => ( 
-                          <li className="ml-4" key={key}>{value}</li> ))} 
-                      </ol>
-                    </div>
-                    <div>
-                      <span className="font-semibold">Pendaftaran/Deadline:</span> {scholarship.deadline}
-                    </div>
-                    <div>
-                      <span className="font-semibold">Tunjangan:</span> {scholarship.tunjangan}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            <Card>
+              <CardContent>
+                <Carousel className="w-[80%] mx-auto">
+                <CarouselNext/>
+                <CarouselPrevious/>
+                <CarouselContent>
+                  {scholarships.map((scholarship) => (
+                  <CarouselItem key={scholarship.nama}>
+                    <Card key={scholarship.nama} className="border-none">
+                      <CardHeader className="p-4 sm:p-6">
+                        <CardTitle className="text-lg sm:text-xl">{scholarship.nama}</CardTitle>
+                        <CardDescription className="text-sm sm:text-base">{scholarship.deskripsi}</CardDescription>
+                      </CardHeader>
+                      <CardContent className="p-4 sm:p-6">
+                        <div className="space-y-2 text-sm sm:text-base">
+                          <div>
+                            <p className="font-bold">Syarat:</p>
+                            <ol>
+                              {Object.entries(scholarship.syarat).map(([key, value]) => ( 
+                                <li className="ml-4" key={key}>{value}</li> ))} 
+                            </ol>
+                          </div>
+                          <div>
+                            <span className="font-semibold">Pendaftaran/Deadline:</span> {scholarship.deadline}
+                          </div>
+                          <div>
+                            <span className="font-semibold">Tunjangan:</span> {scholarship.tunjangan}
+                          </div>
+                          <div>
+                            <span className="font-semibold">Infor lebih lanjut kunjungi: :</span> <Link className="underline hover:no-underline" href={scholarship.web} target="_blank">{scholarship.web}</Link>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+                </CarouselContent>
+              </Carousel>
+              </CardContent>
+            </Card>
           </div>
         </div>
-
       </div>
     </div>
   )

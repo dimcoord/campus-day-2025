@@ -18,7 +18,8 @@ export function MainNav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="border-b bg-merah_1">
+    <nav className="border-b 
+    bg-gradient-to-r from-merah_2 via-slate-50 to-kuning_2 to-[99%]">
       <div className="flex h-16 items-center px-4 container max-w-7xl mx-auto">
         <Link href="/"><Image alt="logo" src={logo} width={128} height={72}></Image></Link>
         
