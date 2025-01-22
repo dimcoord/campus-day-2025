@@ -7,8 +7,8 @@ import { MainFooter } from '@/components/main-footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Campus Day 2025',
-  description: 'Tagline di sini',
+  title: 'CampusDay 2025',
+  description: '#LetYourColorsBloom',
 }
 
 export default function RootLayout({
