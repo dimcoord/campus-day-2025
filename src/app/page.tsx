@@ -13,7 +13,7 @@ export default function HomePage() {
       <UniversityLogos />
       <div className="container max-w-7xl mx-auto py-8 sm:py-16 px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Perguruan Tinggi</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4">Overview</h2>
           <p className="text-lg sm:text-xl text-muted-foreground">Lihat informasi tentang perguruan tinggi favoritmu di sini.</p>
         </div>
         
@@ -32,7 +32,7 @@ export default function HomePage() {
                 <CardDescription className="text-sm sm:text-base">{university.description}</CardDescription>
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
-                <h3 className="font-semibold mb-2">Untuk kamu yang suka:</h3>
+                <h3 className="font-semibold mb-2">Kategori:</h3>
                 <ul className="list-disc list-inside text-sm sm:text-base text-muted-foreground">
                   {university.programs.map((program) => (
                     <li key={program}>{program}</li>
