@@ -16,7 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 
 // Fetch function for SWR
@@ -37,10 +37,10 @@ const ResultDisplay = ({ data }: { data: any }) => {
         <TableHeader>
             <TableRow>
                 <TableHead>Nama</TableHead>
-                <TableHead>Angkatan</TableHead>
                 <TableHead>Prodi</TableHead>
                 <TableHead>PT</TableHead>
-                <TableHead>Kontak</TableHead>
+                <TableHead>Jalur</TableHead>
+                <TableHead>Jenjang</TableHead>
                 <TableHead>IG</TableHead>
             </TableRow>
         </TableHeader>
@@ -48,10 +48,10 @@ const ResultDisplay = ({ data }: { data: any }) => {
         {data.map((item, index) => (
           <TableRow key={index}>
             <TableCell>{item.nama}</TableCell>
-            <TableCell>{item.angkatan}</TableCell>
             <TableCell>{item.prodi}</TableCell>
             <TableCell>{item.pt}</TableCell>
-            <TableCell>{item.kontak}</TableCell>
+            <TableCell>{item.jalur}</TableCell>
+            <TableCell>{item.jenjang}</TableCell>
             <TableCell>{item.ig}</TableCell>
           </TableRow>
         ))}
@@ -120,6 +120,8 @@ export default function Home() {
       <Card className="max-w-screen mx-auto mt-20">
         <CardHeader>
           <CardTitle className='text-2xl'>Persebaran Alumni</CardTitle>
+          <CardDescription><p className='text-lg bold'>Angkatan 24</p>
+          <br/>Berdasarkan jalur masuk perguruan tinggi:</CardDescription>
         </CardHeader>
         <CardContent>
           <Accordion 
@@ -129,73 +131,31 @@ export default function Home() {
             value={value}
             onValueChange={setValue}
           >
-            <AccordionItem value="agraria">
-              <AccordionTrigger className='text-xl'>Agraria</AccordionTrigger>
+            <AccordionItem value="snbp">
+              <AccordionTrigger className='text-xl'>SNBP</AccordionTrigger>
               <AccordionContent>
-                <QuerySection operation="agraria" value={value} />
+                <QuerySection operation="snbp" value={value} />
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="humaniora">
-              <AccordionTrigger className='text-xl'>Humaniora</AccordionTrigger>
+            <AccordionItem value="snbt">
+              <AccordionTrigger className='text-xl'>SNBT</AccordionTrigger>
               <AccordionContent>
-                <QuerySection operation="humaniora" value={value} />
+                <QuerySection operation="snbt" value={value} />
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="kedinasan">
-              <AccordionTrigger className='text-xl'>Kedinasan</AccordionTrigger>
+            <AccordionItem value="mandiri">
+              <AccordionTrigger className='text-xl'>Mandiri</AccordionTrigger>
               <AccordionContent>
-                <QuerySection operation="kedinasan" value={value} />
+                <QuerySection operation="mandiri" value={value} />
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="kesehatan">
-              <AccordionTrigger className='text-xl'>Kesehatan</AccordionTrigger>
+            <AccordionItem value="raport">
+              <AccordionTrigger className='text-xl'>Raport</AccordionTrigger>
               <AccordionContent>
-                <QuerySection operation="kesehatan" value={value} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="ekbis">
-              <AccordionTrigger className='text-xl'>Ekbis</AccordionTrigger>
-              <AccordionContent>
-                <QuerySection operation="ekbis" value={value} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="mipakom">
-              <AccordionTrigger className='text-xl'>Mipakom</AccordionTrigger>
-              <AccordionContent>
-                <QuerySection operation="mipakom" value={value} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="pendidikan">
-              <AccordionTrigger className='text-xl'>Pendidikan</AccordionTrigger>
-              <AccordionContent>
-                <QuerySection operation="pendidikan" value={value} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="sospol">
-              <AccordionTrigger className='text-xl'>Sospol</AccordionTrigger>
-              <AccordionContent>
-                <QuerySection operation="sospol" value={value} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="teknik">
-              <AccordionTrigger className='text-xl'>Teknik</AccordionTrigger>
-              <AccordionContent>
-                <QuerySection operation="teknik" value={value} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="vokasi">
-              <AccordionTrigger className='text-xl'>Vokasi</AccordionTrigger>
-              <AccordionContent>
-                <QuerySection operation="vokasi" value={value} />
+                <QuerySection operation="raport" value={value} />
               </AccordionContent>
             </AccordionItem>
 

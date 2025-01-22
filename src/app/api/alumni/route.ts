@@ -12,48 +12,20 @@ export async function GET(request: Request) {
     let result
 
     switch (operation) {
-      case 'agraria':
+      case 'snbp':
         result = await Alumni.find({ruangan: 1}).sort({ nama: 'ascending' })
         break
 
-      case 'humaniora':
+      case 'snbt':
         result = await Alumni.find({ruangan: 2}).sort({ nama: 'ascending' })
         break
 
-      case 'kedinasan':
+      case 'mandiri':
         result = await Alumni.find({ruangan: 3}).sort({ nama: 'ascending' })
         break
-
-      case 'kesehatan':
+      
+      case 'raport':
         result = await Alumni.find({ruangan: 4}).sort({ nama: 'ascending' })
-        break
-
-    case 'ekbis':
-        result = await Alumni.find({ruangan: 5}).sort({ nama: 'ascending' })
-        break
-
-    case 'mipakom':
-        result = await Alumni.find({ruangan: 6}).sort({ nama: 'ascending' })
-        break
-    
-    case 'pendidikan':
-        result = await Alumni.find({ruangan: 7}).sort({ nama: 'ascending' })
-        break
-    
-    case 'sospol':
-        result = await Alumni.find({ruangan: 8}).sort({ nama: 'ascending' })
-        break
-    
-    case 'teknik':
-        result = await Alumni.find({ruangan: 9}).sort({ nama: 'ascending' })
-        break
-    
-    case 'vokasi':
-        result = await Alumni.find({ruangan: 10}).sort({ nama: 'ascending' })
-        break
-    
-    case 'internasional':
-        result = await Alumni.find({ruangan: 11}).sort({ nama: 'ascending' })
         break
 
     default:
