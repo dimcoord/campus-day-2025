@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import logo from "../../public/logo.png"
+import logo from "../../public/logo2.png"
 import { Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"

@@ -14,9 +14,9 @@ export function UniversityLogos() {
     <div className="w-full bg-muted/50 py-8 sm:py-12">
       <div className="container max-w-7xl mx-auto">
         <div className="text-center mb-6 sm:mb-8 px-4">
-          <h2 className="text-xl sm:text-2xl font-bold mb-2">Perguruan Tinggi</h2>
+          <h2 className="text-xl sm:text-2xl font-bold mb-2">Partisipasi</h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            Perguruan tinggi yang berpartisipasi dalam acara CampusDay 2025:
+            Pihak-pihak yang berpartisipasi dalam acara CampusDay 2025:
           </p>
         </div>
         
@@ -34,6 +34,19 @@ export function UniversityLogos() {
               isPaused ? 'animation-play-state-paused' : ''
             }`}
           >
+            <div
+                key="ambisius"
+                className="flex-shrink-0"
+              >
+              <Image
+                  src="/logo/ambisius.png"
+                  alt="Ambisius"
+                  width={200}
+                  height={80}
+                  className="object-contain h-16 sm:h-20"
+                  draggable={false}
+                />
+              </div>
             {/* First set of logos */}
             {universities.map((university) => (
               <div
